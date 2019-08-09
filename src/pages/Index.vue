@@ -1,51 +1,27 @@
 <template>
-  <div class="home">
+  <Layout class="home">
     <div class="intro">
-      <progressive-img
-        class="profile-image"
-        :src="image"
-        :placeholder="imagePlaceholder"
-      />
+      <g-image :src="image" class="profile-image"/>
       <h1 class="title">Hi, I'm Kyrsten.</h1>
     </div>
 
-    <resume />
-  </div>
+  </Layout>
 </template>
 
 <script>
-import Resume from '~/components/Resume.vue';
-
 export default {
   name: 'home',
-  components: {
-    Resume,
-  },
+  components: {},
   computed: {
-    image: () => require('~/assets/images/kyrsten.jpg'),
-    imagePlaceholder: () => require('~/assets/images/kyrsten-compressed.jpg')
+    image: () => require('~/assets/images/kyrsten.jpg')
   },
+  metaInfo: {
+    title: 'Home'
+  }
 }
 </script>
 
 <style lang="scss">
-#app {
-  max-width: 900px;
-  margin: spacing(2);
-
-  @include media($screen-sm) {
-    margin: spacing(4);
-  }
-
-  @include media($screen-md) {
-    margin: spacing(6);
-  }
-
-  @include media($screen-lg) {
-    margin: spacing(8) auto;
-  }
-}
-
 .intro {
   display: flex;
   justify-content: center;

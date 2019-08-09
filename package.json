@@ -7,17 +7,22 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
+    "@gridsome/transformer-remark": "^0.3.2",
+    "babel-runtime": "^6.26.0",
     "gridsome": "^0.6.0",
-    "vue-progressive-image": "^3.2.0"
+    "prismjs": "^1.17.1"
   },
   "devDependencies": {
+    "@gridsome/remark-prismjs": "^0.1.0",
+    "@gridsome/source-filesystem": "^0.5.0",
     "css-loader": "^3.2.0",
     "gridsome-plugin-sass-resources-loader": "0.0.2",
     "kyrsten-sass-utils": "^1.0.1",
     "node-sass": "^4.12.0",
     "sass": "^1.22.9",
-    "sass-loader": "^7.1.0",
-    "style-resources-loader": "^1.2.1",
-    "vue-style-loader": "^4.1.2"
+    "sass-loader": "^7.1.0"
   }
 }

@@ -1,15 +1,20 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
+    <header class="layout__header">
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
+
+        <span>
+          <g-link class="nav__link" to="/blog">Blog</g-link>
+          <g-link class="nav__link" to="/resume">Resume</g-link>
+          <g-link class="nav__link" to="/about">About</g-link>
+        </span>
       </nav>
     </header>
-    <slot/>
+
+    <div class="layout__content">
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -21,30 +26,48 @@ query {
 }
 </static-query>
 
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
+<style lang="scss">
 .layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  &__header {
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
+      &__link {
+        margin-left: 20px;
+        text-decoration: none;
 
-.nav__link {
-  margin-left: 20px;
+        &.left {
+          align-self: flex-start;
+        }
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__header, &__content {
+    max-width: $content-max-width;
+    margin: spacing(2);
+  
+    @include media($screen-sm) {
+      margin: spacing(2) spacing(4);
+    }
+  
+    @include media($screen-md) {
+      margin: spacing(3) spacing(6);
+    }
+  
+    @include media($screen-lg) {
+      margin: spacing(4) auto;
+    }
+  }
 }
 </style>

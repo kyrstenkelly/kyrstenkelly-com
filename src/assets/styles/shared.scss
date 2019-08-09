@@ -3,6 +3,7 @@
 
 $font-family-title: 'Quicksand', sans-serif;
 $font-family: 'Open Sans', sans-serif;
+$content-max-width: 900px;
 
 // Colors
 $slate: #2c3e50;
@@ -22,14 +23,15 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 .title {
   font-family: $font-family-title;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-semibold;
 }
 
-.link {
+a, .link {
   color: $teal;
   text-decoration: none;
 
@@ -38,3 +40,8 @@ body {
     cursor: pointer;
   }
 }
+
+.link-dark {
+  color: $slate;
+}
+

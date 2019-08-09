@@ -1,5 +1,7 @@
 <template>
-  <div class="resume">
+  <Layout class="resume">
+    <h1 class="title">Resume</h1>
+
     <div class="section">
       <div class="section__title">
         <img svg-inline class="section__icon" :src="icons.code" alt="code"/>
@@ -32,7 +34,7 @@
         <Jobs v-bind="{jobs, highlight, unhighlight}" />
       </div>
     </div>
-  </div>
+  </Layout>
 </template>
 
 <script>
@@ -70,6 +72,9 @@
         tools: data.tools,
         jobs: data.jobs,
       }
+    },
+    metaInfo: {
+      title: 'Resume'
     }
   }
 </script>
