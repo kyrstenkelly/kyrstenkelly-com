@@ -3,11 +3,12 @@ title: How the Undefined URL Found a Hostname
 date: 2019-07-30
 description: "A strange story about using StackOverflow-sourced hacks."
 slug: undefined-url-found-a-hostname
+tags: url, javascript, stackoverflow
 ---
 
-We wanted to verify if a url was either one of our allowed redirect domains, or just a relative path. 
+One of our applications will read a query parameter such as `?next=<some url>` and redirect to that once it's done with it's task. In that app, we wanted to verify if the `next` URL provided was either one of our allowed redirect domains, or just a relative path. Otherwise, if it's a URL we don't recognize, don't go there. 
 
-We were using this solution, which can be found on StackOverflow within seconds of googling "javascript url get hostname" (as the [accepted answer](https://stackoverflow.com/a/736970/11294434)...from _2012 mind you_).
+To do this we wanted to parse out the hostname. We were using this solution, which can be found on StackOverflow within seconds of googling "javascript url get hostname" (as the [accepted answer](https://stackoverflow.com/a/736970/11294434)...from _2012 mind you_).
 
 ```js
 function getHostname(url: string): string {
@@ -23,16 +24,17 @@ We used that helper method in our `redirect` function and went on our way:
 
 ```js
 function redirect(url) {
-    const hostname = getHostname(url);
-    const pattern = new RegExp(
-        '(^|\\.)' + config.ALLOWED_REDIRECT_DOMAIN + '$',
-        'i'
-    );
-    // !hostname implies that it's a relative url
-    if (!hostname || pattern.test(hostname)) {
-        // Do the redirect
-    }  
-    // Redirect instead to our fallback URL
+  const hostname = getHostname(url);
+  const pattern = new RegExp(
+    '(^|\\.)' + config.ALLOWED_REDIRECT_DOMAIN + '$','i'
+  );
+  
+  // !hostname implies that it's a relative url
+  if (!hostname || pattern.test(hostname)) {
+    // Do the redirect
+  }  
+
+  // Redirect instead to our fallback URL
 }
 ```
 
@@ -77,4 +79,4 @@ function redirect(url) {
 }
 ```
 
-If you're creating a random document element in the middle of your JavaScript...you're probably doing it wrong. 
+If you're creating a random document element in the middle of your JavaScript just to parse a URL...you're probably doing it wrong. 
