@@ -8,17 +8,23 @@
         {{ $page.blogPost.title }}
       </h1>
       <div class="post__date">{{ $page.blogPost.date }}</div>
+      <blog-tags :tags="$page.blogPost.tags"/>
       <div class="post__content" v-html="$page.blogPost.content" />
     </div>
   </Layout>
 </template>
 
 <script>
+import BlogTags from '~/components/BlogTags.vue';
+
 export default {
   metaInfo () {
     return {
       title: this.$page.blogPost.title
     }
+  },
+  components: {
+    BlogTags
   }
 }
 </script>
@@ -28,6 +34,7 @@ export default {
     blogPost (path: $path) {
       title
       date (format: "MMMM D, YYYY")
+      tags
       content
     }
   }

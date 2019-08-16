@@ -5,7 +5,11 @@
         <router-link class="link-dark" :to="node.path">
           <h1 class="post__title title" v-html="node.title"/>
         </router-link>
+
         <div class="post__date" v-html="node.date"/>
+
+        <blog-tags :tags="node.tags"/>
+
         <div class="post__description" v-html="node.description"/>
       </li>
     </ul>
@@ -22,6 +26,7 @@
           date (format: "MMMM D, YYYY")
           description
           path
+          tags
         }
       }
     }
@@ -29,9 +34,14 @@
 </page-query>
 
 <script>
+import BlogTags from '~/components/BlogTags.vue';
+
 export default {
   metaInfo: {
     title: 'Blog'
+  },
+  components: {
+    BlogTags
   }
 }
 </script>
@@ -40,19 +50,18 @@ export default {
 .post-list {
   list-style: none;
   padding: 0;
-  margin: spacing(4) 0;
-}
+  
+  .post {
+    padding-bottom: spacing(3);
 
-.post {
-  padding-bottom: spacing(3);
+    &__title {
+      margin-bottom: spacing(1);
+    }
 
-  &__title {
-    margin-bottom: spacing(1);
-  }
-
-  &__date {
-    margin-bottom: spacing(1);
-    font-size: rem(14);
+    &__date {
+      margin-bottom: spacing(1);
+      font-size: rem(14);
+    }
   }
 }
 </style>

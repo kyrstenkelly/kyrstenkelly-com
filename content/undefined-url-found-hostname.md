@@ -3,7 +3,7 @@ title: How the Undefined URL Found a Hostname
 date: 2019-07-30
 description: "A strange story about using StackOverflow-sourced hacks."
 slug: undefined-url-found-a-hostname
-tags: url, javascript, stackoverflow
+tags: ["url", "javascript", "stackoverflow"]
 ---
 
 One of our applications will read a query parameter such as `?next=<some url>` and redirect to that once it's done with it's task. In that app, we wanted to verify if the `next` URL provided was either one of our allowed redirect domains, or just a relative path. Otherwise, if it's a URL we don't recognize, don't go there. 

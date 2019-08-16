@@ -1,9 +1,9 @@
 ---
 title: Hack that Linter
 date: 2019-08-01
-description: "When Typescript and linters don't play nice"
+description: "When Typescript and linters don't play nice."
 slug: hack-that-linter
-tags: linter, eslint, tslint, typescript
+tags: ["linter", "eslint", "tslint", "typescript"]
 ---
 
 This story starts out in a repo like many others...it was born a lowly ES6 application, and wanted to grow up to be a Typescript app just like all the cool kids. So, like most other engineers that enjoy converting their applications to new versions of JavaScript every 12 months, we started converting this baby to Typescript. 
