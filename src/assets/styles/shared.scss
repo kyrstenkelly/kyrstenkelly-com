@@ -29,6 +29,11 @@ body {
 .title {
   font-family: $font-family-title;
   font-weight: $font-weight-semibold;
+  text-align: center;
+  
+  @include media($screen-sm) {
+    text-align: left;
+  }
 }
 
 a, .link {

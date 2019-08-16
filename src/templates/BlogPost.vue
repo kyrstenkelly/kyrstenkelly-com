@@ -52,5 +52,11 @@ export default {
     font-size: rem(14);
     margin-bottom: spacing(2);
   }
+
+  // Some overrides to the prism styles
+  code[class="language-text"] {
+    font-size: 82%;
+    padding: .2em .4em;
+  }
 }
 </style>
